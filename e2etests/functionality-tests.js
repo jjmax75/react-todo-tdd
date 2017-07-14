@@ -10,8 +10,8 @@ describe('Todo List App Functionality tests', () => {
     browser.element('.todo-input').setValue(todoText);
     browser.click('.todo-submit');
 
-    const actual = browser.element('.todo-text').getValue();
+    const actual = browser.element('.todo-text').getText();
 
-    expect(actual).toEqual(todoText);
+    expect(actual).to.equal(todoText);
   });
 });

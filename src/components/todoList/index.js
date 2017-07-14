@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TodoList = (props) => {
-  const todoItems = (todos) => {
+  const todoItems = todos =>
     todos.map(todo => (
       <li key={todo.id}>
         <span className='todo-text'>{todo.text}</span>
       </li>
     ));
-  };
 
   return (
     <ul>

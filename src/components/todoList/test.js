@@ -19,6 +19,6 @@ describe('TodoList component', () => {
   });
 
   it('Should display a todo when passed in as a prop', () => {
-    expect(component.find('.todo-text')).toEqual(todos[0].text);
+    expect(component.find('.todo-text').text()).toEqual(todos[0].text);
   });
 });
