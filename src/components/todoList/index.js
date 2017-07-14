@@ -16,13 +16,23 @@ const TodoList = (props) => {
         <span className='todo-text'>
           {todo.text}
         </span>
+
       </li>
     ));
 
   return (
-    <ul>
-      {todoItems(props.todos, props.deleteTodo)}
-    </ul>
+    <div>
+      <ul>
+        {todoItems(props.todos, props.deleteTodo)}
+      </ul>
+      <button
+        type='button'
+        className='todo-undelete'
+        onClick={() => props.undeleteTodo()}
+      >
+        Undelete last Todo
+      </button>
+    </div>
   );
 };
 
@@ -34,6 +44,7 @@ TodoList.propTypes = {
     },
   )).isRequired,
   deleteTodo: PropTypes.func.isRequired,
+  undeleteTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

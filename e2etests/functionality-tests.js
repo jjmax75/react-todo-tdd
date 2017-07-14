@@ -31,13 +31,9 @@ describe('Todo List App Functionality tests', () => {
     browser.element('.todo-input').setValue(todoText);
     browser.click('.todo-submit');
     browser.click('.todo-delete');
-
-    const actualDeleted = browser.element('.todo-text');
-    expect(actualDeleted.state).to.equal('failure');
-
     browser.click('.todo-undelete');
 
-    const actualUndeleted = browser.element('.todo-text');
+    const actualUndeleted = browser.element('.todo-text').getText();
     expect(actualUndeleted).to.equal(todoText);
   });
 });
