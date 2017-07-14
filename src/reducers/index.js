@@ -27,6 +27,11 @@ export const reducer = (state = initialState, action) => {
             todo.id !== action.id
           )),
         ],
+        lastDeletedTodo: {
+          ...state.todos.filter(todo => (
+            todo.id === action.id
+          ))[0],
+        },
       };
 
     default:

@@ -25,4 +25,19 @@ describe('Todo List App Functionality tests', () => {
 
     expect(actual.state).to.equal('failure');
   });
+
+  it('Should allow me to undelete last deleted Todo', () => {
+    browser.url('http://localhost:3000/');
+    browser.element('.todo-input').setValue(todoText);
+    browser.click('.todo-submit');
+    browser.click('.todo-delete');
+
+    const actualDeleted = browser.element('.todo-text');
+    expect(actualDeleted.state).to.equal('failure');
+
+    browser.click('.todo-undelete');
+
+    const actualUndeleted = browser.element('.todo-text');
+    expect(actualUndeleted).to.equal(todoText);
+  });
 });

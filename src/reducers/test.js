@@ -49,6 +49,10 @@ describe('Reducer', () => {
 
       const expectedState = {
         todos: [],
+        lastDeletedTodo: {
+          id: 1,
+          text: todoText,
+        },
       };
 
       expect(reducer(startingState, action)).toEqual(expectedState);
