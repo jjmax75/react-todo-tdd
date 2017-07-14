@@ -9,7 +9,7 @@ export const App = props => (
   <div>
     <h1>Todo List</h1>
     <AddTodo submitTodo={props.submitTodo} />
-    <TodoList todos={props.todos} />
+    <TodoList todos={props.todos} deleteTodo={props.deleteTodo} />
   </div>
 );
 
@@ -21,6 +21,7 @@ App.propTypes = {
       text: PropTypes.string.isRequired,
     },
   )).isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => state.todoListApp;
@@ -30,6 +31,10 @@ const mapDispatchToProps = dispatch => ({
     if (text) {
       dispatch(actions.submitTodo(text));
     }
+  },
+
+  deleteTodo: (id) => {
+    dispatch(actions.deleteTodo(id));
   },
 });
 

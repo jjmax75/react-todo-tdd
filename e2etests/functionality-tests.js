@@ -2,10 +2,10 @@
 
 const expect = require('chai').expect;
 
+const todoText = 'Get better at testing';
+
 describe('Todo List App Functionality tests', () => {
   it('Should allow me to create a Todo', () => {
-    const todoText = 'Get better at testing';
-
     browser.url('http://localhost:3000/');
     browser.element('.todo-input').setValue(todoText);
     browser.click('.todo-submit');
@@ -13,5 +13,16 @@ describe('Todo List App Functionality tests', () => {
     const actual = browser.element('.todo-text').getText();
 
     expect(actual).to.equal(todoText);
+  });
+
+  it('Should allow me to delete a Todo', () => {
+    browser.url('http://localhost:3000/');
+    browser.element('.todo-input').setValue(todoText);
+    browser.click('.todo-submit');
+    browser.click('.todo-delete');
+
+    const actual = browser.element('.todo-text');
+
+    expect(actual.state).to.equal('failure');
   });
 });
